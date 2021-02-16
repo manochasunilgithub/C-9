@@ -1,1 +1,212 @@
-<h1>CSHARP At Glance</h1>
+<html lang="en">
+<head>
+<title>C#9 At Glance</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 3px;
+  text-align: center;
+  font-size: 22px;
+  height: 10%;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  height: 90%;
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 1px;
+}
+
+article {
+  float: left;
+  padding: 1px;
+  width: 80%;
+  height: 90%;
+  background-color: #f1f1f1;
+  
+}
+
+table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+tr {
+  background-color: #eee;
+  color: black;
+}
+th {
+  background-color: black;
+  color: white;
+}
+
+code{
+  font-family: verdana;
+  font-size: 14;
+}
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>C#9 At Glance</h2>
+
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#impmain">Implicit Main</a></li>
+      <li><a href="#initproperties">Init Properties</a></li>
+      <li><a href="#">Record</a></li>
+	  <li><a href="#">Improved Pattern Matching</a></li>
+      <li><a href="#">Native Ints</a></li>
+    </ul>
+  </nav>
+  
+  
+  <article id="home">
+  <h1>C#9 What's New</h1>
+  <p>C# continues its evolution journey and making programmers life easier. Though new features may not look very attractive but surely it will reduce the amount of code one needs to write to achieve target code, so less chances of making mistakes and of course code will look more readable and compact.</p>
+  <p>C# 9.0 needs .Net 5.0 framework. It is good for C# developers to know all these features whenever they start writing code since it continues to make C# more and more abstract. Following are main features added in C# 9...</p>	
+  <ul>
+      <li><a href="#impmain">Implicit Main</a></li>
+      <li><a href="#initproperties">Init Properties</a></li>
+      <li><a href="#">Record</a></li>
+	  <li><a href="#">Improved Pattern Matching</a></li>
+      <li><a href="#">Native Ints</a></li>
+  </ul>
+  
+
+  <p id="impmain">
+    <h1>Implicit Main</h1>
+    <p>This is another trick added, so beginners can quickly jump to test some code as they don't need to write main function and extra namespace.
+ Only one file in your application may use top-level statements. If the compiler finds top-level statements in multiple source files, it is an 
+ error. It is also an error if you combine top-level statements with a declared program entry point method, typically a Main method.</p>
+<table id="t01">
+  <tr>
+    <th>C# version <=9</th>
+    <th>C# version 9</th> 
+    
+  </tr>
+  <tr>
+    <td><pre><code>using System;
+
+namespace TestNamespace
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to C#9");
+        }
+    }
+}
+</pre></code></td>
+    <td><pre><code>using System;
+					
+Console.WriteLine("Welcome to C#9");</pre></code></td>
+    
+  </tr>
+  
+</table>
+	
+  </p>
+  <p id="initproperties">
+	<h1>Init properties</h1>
+    <p>This is very handy feature where we can create and design classes without sacrificing encapsulation. For example below if we need to use object initialiser then either
+	   we have to make Name property mutable or declare constuctor and passing arguments using that, but in C#9 it can simply be done by adding the init to property which makes it 
+	   mutable only for initialisation.
+<table >
+  <tr>
+    <th>C# version <=9</th>
+    <th>C# version 9</th> 
+    
+  </tr>
+  <tr>
+    <td><pre><code>using System;
+
+public class TestClass
+{
+	public string Name {get;set;}
+}
+public class Program
+{
+	public static void Main()
+	{
+		var testObject = new TestClass{ Name="Sunil" };
+		Console.WriteLine($"Name={testObject.Name}");
+	}
+}
+</pre></code></td>
+    <td><pre><code>using System;
+
+public class TestClass
+{
+	public string Name {get;init;}
+}
+public class Program
+{
+	public static void Main()
+	{
+		var testObject = new TestClass{ Name="Sunil" };
+		//testObject.Name = "New Name"; Not allowed
+		Console.WriteLine($"Name={testObject.Name}");
+	}
+}</pre></code></td>
+    
+  </tr>
+  
+	
+	   </p>
+  </p>
+  </article>
+</section>
+
+
+</body>
+</html>
