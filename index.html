@@ -73,6 +73,7 @@ Console.WriteLine("Welcome to C#9");
                 This is very handy feature where we can create and design classes without sacrificing encapsulation. For example below if we need to use object initialiser then either
                 we have to make Name property mutable or declare constuctor and passing arguments using that, but in C#9 it can simply be done by adding the init to property which makes it
                 mutable only for initialisation.
+		    
             </p>
             <table>
                 <tr>
@@ -202,10 +203,12 @@ public class Program
             <p>
                 C# 9 keeps evolving to be very high level language and embracing language which is more of plain English.
                 Previous choices which were made for C# to be fast but hard to read the language in some cases.
+		    
             </p>
-            <h3>Logical expression</h3>
+            <h1>Logical expression</h1>
             C# 9.0 now supports a few new keywords like not, and, and or. It makes some expressions easier to read,
             and for the rest, you can still use the shorter syntax using the logical symbols.
+	
             <pre><code>
         if(name is not string)
         // is much easier to read than
@@ -213,9 +216,10 @@ public class Program
                     </code>
                 </pre>
 
-            <h3>Pattern matching</h3>
+            <h1>Pattern matching</h1>
             These new operators are useful when you want to combine them with pattern matching.
             We can now also use relational patterns like >=, >, and so on, directly in pattern matching expressions.
+	
             <pre><code>
         var p = new Person(0);
         var a = p.Height switch
