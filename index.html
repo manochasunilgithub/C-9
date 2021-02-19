@@ -1,140 +1,46 @@
 <html lang="en">
 <head>
-<title>C#9 At Glance</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Style the header */
-header {
-  background-color: #666;
-  padding: 3px;
-  text-align: center;
-  font-size: 22px;
-  height: 10%;
-  color: white;
-}
-
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
-  width: 20%;
-  height: 90%;
-  background: #ccc;
-  padding: 20px;
-}
-
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 1px;
-}
-
-article {
-  float: left;
-  padding: 1px;
-  width: 80%;
-  height: 90%;
-  background-color: #f1f1f1;
-  
-}
-
-table {
-  width:100%;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 15px;
-  text-align: left;
-}
-
-tr {
-  background-color: #eee;
-  color: black;
-}
-th {
-  background-color: black;
-  color: white;
-}
-
-code{
-  font-family: verdana;
-  font-size: 14;
-}
-/* Clear floats after the columns */
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-</style>
 </head>
 <body>
 
-<header>
-  <h2>C#9 At Glance</h2>
+    <nav class="sidebar">
 
-</header>
+        <a href="#home">Home</a>
+        <a href="#impmain">Implicit Main</a>
+        <a href="#initproperties">Init Properties</a>
+        <a href="#record">Record</a>
+        <a href="#ipm">Improved Pattern Matching</a>
+        <a href="#nint">Native Ints</a>
 
-<section>
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#impmain">Implicit Main</a></li>
-      <li><a href="#initproperties">Init Properties</a></li>
-      <li><a href="#">Record</a></li>
-	  <li><a href="#">Improved Pattern Matching</a></li>
-      <li><a href="#">Native Ints</a></li>
-    </ul>
-  </nav>
-  
-  
-  <article id="home">
-  <h1>C#9 What's New</h1>
-  <p>C# continues its evolution journey and making programmers life easier. Though new features may not look very attractive but surely it will reduce the amount of code one needs to write to achieve target code, so less chances of making mistakes and of course code will look more readable and compact.</p>
-  <p>C# 9.0 needs .Net 5.0 framework. It is good for C# developers to know all these features whenever they start writing code since it continues to make C# more and more abstract. Following are main features added in C# 9...</p>	
-  <ul>
-      <li><a href="#impmain">Implicit Main</a></li>
-      <li><a href="#initproperties">Init Properties</a></li>
-      <li><a href="#">Record</a></li>
-	  <li><a href="#">Improved Pattern Matching</a></li>
-      <li><a href="#">Native Ints</a></li>
-  </ul>
-  
+    </nav>
+    <section>
+        <div class="content">
+            <!--<h2 align="center">C#9 At Glance</h2><br/><br/>-->
+            <h2>C#9 What's New...</h2>
+            <p>C# continues its evolution journey and making programmers life easier. Though new features may not look very attractive but surely it will reduce the amount of code one needs to write to achieve target code, so less chances of making mistakes and of course code will look more readable and compact.</p>
+            <p>C# 9.0 needs .Net 5.0 framework. It is good for C# developers to know all these features whenever they start writing code since it continues to make C# more and more abstract. Following are main features added in C# 9...</p>
 
-  <p id="impmain">
-    <h1>Implicit Main</h1>
-    <p>This is another trick added, so beginners can quickly jump to test some code as they don't need to write main function and extra namespace.
- Only one file in your application may use top-level statements. If the compiler finds top-level statements in multiple source files, it is an 
- error. It is also an error if you combine top-level statements with a declared program entry point method, typically a Main method.</p>
-<table id="t01">
-  <tr>
-    <th>C# version <=9</th>
-    <th>C# version 9</th> 
-    
-  </tr>
-  <tr>
-    <td><pre><code>using System;
+
+            <p id="impmain">
+                <h2>Implicit Main</h2>
+            <p>
+                This is another trick added, so beginners can quickly jump to test some code as they don't need to write main function and extra namespace.
+                Only one file in your application may use top-level statements. If the compiler finds top-level statements in multiple source files, it is an
+                error. It is also an error if you combine top-level statements with a declared program entry point method, typically a Main method.
+            </p>
+            <table id="t01">
+                <tr>
+                    <th>C# version &lt;= 9</th>
+                    <th>C# version 9</th>
+
+                </tr>
+                <tr>
+                    <td>
+                        <pre><code>using System;
 
 namespace TestNamespace
 {
@@ -146,66 +52,206 @@ namespace TestNamespace
         }
     }
 }
-</pre></code></td>
-    <td><pre><code>using System;
+                        </code></pre>
+                    </td>
+                    <td>
+                        <pre><code>using System;
 					
-Console.WriteLine("Welcome to C#9");</pre></code></td>
-    
-  </tr>
-  
-</table>
-	
-  </p>
-  <p id="initproperties">
-	<h1>Init properties</h1>
-    <p>This is very handy feature where we can create and design classes without sacrificing encapsulation. For example below if we need to use object initialiser then either
-	   we have to make Name property mutable or declare constuctor and passing arguments using that, but in C#9 it can simply be done by adding the init to property which makes it 
-	   mutable only for initialisation.
-<table >
-  <tr>
-    <th>C# version <=9</th>
-    <th>C# version 9</th> 
-    
-  </tr>
-  <tr>
-    <td><pre><code>using System;
+Console.WriteLine("Welcome to C#9");
+                        </code></pre>
+                    </td>
+
+                </tr>
+
+            </table>
+
+            </p>
+
+            <p id="initproperties">
+                <h2>Init properties</h2>
+            <p>
+                This is very handy feature where we can create and design classes without sacrificing encapsulation. For example below if we need to use object initialiser then either
+                we have to make Name property mutable or declare constuctor and passing arguments using that, but in C#9 it can simply be done by adding the init to property which makes it
+                mutable only for initialisation.
+            </p>
+            <table>
+                <tr>
+                    <th>C# version &lt;=9</th>
+                    <th>C# version 9</th>
+
+                </tr>
+                <tr>
+                    <td>
+                        <pre><code>sing System;
 
 public class TestClass
 {
-	public string Name {get;set;}
+    public string Name { get; set; }
 }
+
 public class Program
 {
-	public static void Main()
-	{
-		var testObject = new TestClass{ Name="Sunil" };
-		Console.WriteLine($"Name={testObject.Name}");
-	}
+    public static void Main()
+    {
+        var testObject = new TestClass {Name = "Sunil"};
+        Console.WriteLine($"Name={testObject.Name}");
+    }
 }
-</pre></code></td>
-    <td><pre><code>using System;
+						
+                        </code></pre>
+                    </td>
+                    <td>
+                        <pre><code>using System;
 
 public class TestClass
 {
-	public string Name {get;init;}
+    public string Name { get; init; }
 }
 public class Program
 {
-	public static void Main()
-	{
-		var testObject = new TestClass{ Name="Sunil" };
-		//testObject.Name = "New Name"; Not allowed
-		Console.WriteLine($"Name={testObject.Name}");
-	}
-}</pre></code></td>
-    
-  </tr>
-  
-	
-	   </p>
-  </p>
-  </article>
-</section>
+    public static void Main()
+    {
+        var testObject = new TestClass { Name = "Sunil" };
+        //testObject.Name = "New Name"; Not allowed
+        Console.WriteLine($"Name={testObject.Name}");
+    }
+}
+ 
+</code></pre>
+                    </td>
+
+                </tr>
+
+            </table>
+
+            </p>
+
+            <p id="record">
+                <h2>Records</h2>
+            <p>
+                Records are useful to represent a complex data with many properties, like a database record or some model entity DTOs etc. Prior to this
+                amount of code we had to write for creating immutable objects was huge and somewhere we had to sacrifice encapsulation to make our properties initializable using object initialisation
+                or cloning. As we can see in below example how cleaner the code looks for DTO objects using C#9 and if we see in the IL code it would look similar to what we were writing ouselves and
+                few extra methods added by the compiler.
+
+                <table>
+                    <tr>
+                        <th>C# version &lt;=9</th>
+                        <th>C# version 9</th>
+
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <pre><code>
+    public abstract class PriceDataDtoBase
+    {
+        protected PriceDataDtoBase(DateTime date, string name, string venue)
+        {
+            LastUpdatedTime = date;
+            Ticker = name;
+            Venue = venue;
+        }
+
+        public DateTime LastUpdatedTime { get; }
+        public string Ticker { get; }
+        public string Venue { get; }
+    }
+
+    public class TradePriceDataDto : PriceDataDtoBase
+    {
+        public TradePriceDataDto(DateTime date, string name, string venue,
+            double lastTradedQuantity, double lastTradedPrice) : base(date, name, venue)
+        {
+            LastTradedQuantity = lastTradedQuantity;
+            LastTradedPrice = lastTradedPrice;
+        }
+
+        public double LastTradedQuantity { get; }
+        public double LastTradedPrice { get; }
+
+        public void Deconstruct(out DateTime lastUpdateDateTime, out string name,
+            out string venue, out double lastprice, out double lastTradedQuantity)
+        {
+            lastUpdateDateTime = LastUpdatedTime;
+            name = Ticker;
+            venue = Venue;
+            lastTradedQuantity = LastTradedQuantity;
+            lastprice = LastTradedPrice;
+        }
+    }   
+                            
+                        </code></pre>
+                        </td>
+                        <td>
+                            <pre><code>
+    public record PriceDataDtoBase(DateTime LastUpdatedTime, 
+	    string Ticker, string Venue);
+
+    public record EventPriceDto(DateTime LastUpdatedTime,
+	    string Ticker, string Venue, double LastTradedPrice,
+	    double LastTradedQuantity) :PriceDataDtoBase(LastUpdatedTime, Ticker, Venue);
+						    </code></pre>
+                        </td>
+
+                    </tr>
+                </table>
+            </p>
+            <p id="ipm">
+                <h2>Improved Pattern Matching</h2>
+            <p>
+                C# 9 keeps evolving to be very high level language and embracing language which is more of plain English.
+                Previous choices which were made for C# to be fast but hard to read the language in some cases.
+            </p>
+            <h3>Logical expression</h3>
+            C# 9.0 now supports a few new keywords like not, and, and or. It makes some expressions easier to read,
+            and for the rest, you can still use the shorter syntax using the logical symbols.
+            <pre><code>
+        if(name is not string)
+        // is much easier to read than
+        if(!(name is string))
+                    </code>
+                </pre>
+
+            <h3>Pattern matching</h3>
+            These new operators are useful when you want to combine them with pattern matching.
+            We can now also use relational patterns like >=, >, and so on, directly in pattern matching expressions.
+            <pre><code>
+        var p = new Person(0);
+        var a = p.Height switch
+        {
+            < 150 => "small",
+            >= 150 and < 200 => "normal",
+            not null => "unknown",
+            null => "error",
+        };
+                </code>
+                </pre>
+            Before C# 9.0, some patterns were impossible to represent. eg. not null.
+            It was mainly a compiler's limitation because !null wasn't a valid parsable token by C#.
+            Now with the introduction of the new logical keywords like not, that problem goes away.
+            The same applies to expressions like >= 150 and < 200. Before C# 9, it wasn't a valid
+            syntax either, as the compiler didn't know how to parse && followed by another logical
+            symbol like &lt;. Also now there is no need of the repetitive declaration of variables
+            that only adds noise to the logical expression.
+            In the end, we got a syntax that is much easier to understand for humans.
+
+            </p>
+            <p id="nint">
+                <h2>Native Ints</h2>
+            <p>
+                New set of native types (nint, nuint). The ‘n’ is standing for native.
+                The design of the new data types is planned to allow a one C# source
+                file to use 32 naturally- or 64-bit storage depending on the host platform type and
+                the compilation settings.
+            </p>
+            <pre><code>
+    nint nativeInt = 55; take 4 bytes when I compile in 32 Bit host.
+    nint nativeInt = 55; take 8 bytes when I compile in 64 Bit host with x64 compilation settings.
+</code></pre>
+            </p>
+        </div>
+    </section>
 
 
 </body>
